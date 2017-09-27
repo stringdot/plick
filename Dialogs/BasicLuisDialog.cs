@@ -35,6 +35,13 @@ namespace Microsoft.Bot.Sample.LuisBot
             context.Wait(MessageReceived);
         }
 
+        [LuisIntent("Goodbye")]
+        public async Task Goodbye(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Bye. See you next time.");
+            context.Wait(MessageReceived);
+        }
+
         [LuisIntent("HowAreYou")]
         public async Task HowAreYou(IDialogContext context, LuisResult result)
         {
@@ -46,7 +53,26 @@ namespace Microsoft.Bot.Sample.LuisBot
             context.Wait(MessageReceived);
         }
 
+        [LuisIntent("Softelligence.info")]
+        public async Task SoftellInfo(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Softelligence is a leading provider of business software services that combines insightful domain knowledge from key industries with powerful engineering services and genuine customer orientation to deliver innovative custom software solutions. Softelligence stands out as a „provider of choice” for top 10 global players within Financial Services, Retail, Logistics and Information Technology.");
+            context.Wait(MessageReceived);
+        }
 
+        [LuisIntent("Softelligence.location")]
+        public async Task SoftellLocation(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Romania. Address: Nova Building, Strada Gara Herastrau 2-4, Bucuresti 020334");
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("Softelligence.customers")]
+        public async Task SoftellCustomers(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Softelligence offers software solutions for industry leaders such as Allianz, Aon, ING, Reiffeisen, Mercedes Benz Financial, Honeywell, Henkel, or DB Schenker, as part of their digital journey. ");
+            context.Wait(MessageReceived);
+        }
         [LuisIntent("")]
         [LuisIntent("None")]
         public async Task None(IDialogContext context, LuisResult result)
